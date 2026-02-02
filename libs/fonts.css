@@ -1,0 +1,32 @@
+@font-face {
+  font-display: block;
+  font-family: "bootstrap-icons";
+  src: url("./fonts/bootstrap-icons.woff2") format("woff2"),
+       url("./fonts/bootstrap-icons.woff") format("woff");
+}
+
+.bi::before,
+[class^="bi-"]::before,
+[class*=" bi-"]::before {
+  display: inline-block;
+  font-family: bootstrap-icons !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -0.125em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.bi-play-fill::before { content: "\f5e8"; }
+.bi-pause-fill::before { content: "\f5e9"; }
+.bi-dash-lg::before { content: "\f597"; }
+.bi-plus-lg::before { content: "\f5fa"; }
+.bi-arrow-clockwise::before { content: "\f1da"; }
+.bi-gear-fill::before { content: "\f52b"; }
+.bi-list-task::before { content: "\f5d3"; }
+.bi-x-lg::before { content: "\f659"; }
+.bi-pencil::before { content: "\f689"; }
+.bi-trash::before { content: "\f6a5"; }
