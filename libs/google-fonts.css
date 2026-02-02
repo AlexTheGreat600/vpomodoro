@@ -1,0 +1,66 @@
+/* Inter */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('./google-fonts/inter-v13-latin-300.woff2') format('woff2'),
+       url('./google-fonts/inter-v13-latin-300.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./google-fonts/inter-v13-latin-400.woff2') format('woff2'),
+       url('./google-fonts/inter-v13-latin-400.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./google-fonts/inter-v13-latin-600.woff2') format('woff2'),
+       url('./google-fonts/inter-v13-latin-600.woff') format('woff');
+}
+
+/* JetBrains Mono */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./google-fonts/jetbrainsmono-v18-latin-400.woff2') format('woff2'),
+       url('./google-fonts/jetbrainsmono-v18-latin-400.woff') format('woff');
+}
+
+/* Roboto Slab */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./google-fonts/robotoslab-v20-latin-400.woff2') format('woff2'),
+       url('./google-fonts/robotoslab-v20-latin-400.woff') format('woff');
+}
+
+/* Montserrat */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./google-fonts/montserrat-v26-latin-400.woff2') format('woff2'),
+       url('./google-fonts/montserrat-v26-latin-400.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./google-fonts/montserrat-v26-latin-700.woff2') format('woff2'),
+       url('./google-fonts/montserrat-v26-latin-700.woff') format('woff');
+}
