@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Vpomodoro
+Comment=A modern, feature-rich Pomodoro timer with stunning themes, custom activities, and powerful customization options
+Exec=xdg-open %U
+Icon=favicon.svg
+Categories=Productivity;Utility;
+StartupNotify=true
+Terminal=false
