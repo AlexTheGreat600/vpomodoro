@@ -8,7 +8,15 @@ const ASSETS_TO_CACHE = [
   '/vpomodoro/manifest.json',
   '/vpomodoro/libs/fonts.css',
   '/vpomodoro/libs/google-fonts.css',
-  '/vpomodoro/libs/progressbar.min.js'
+  '/vpomodoro/libs/progressbar.min.js',
+  // Bootstrap Icons fonts
+  '/vpomodoro/libs/fonts/bootstrap-icons.woff2',
+  '/vpomodoro/libs/fonts/bootstrap-icons.woff',
+  // Google Fonts (locally hosted)
+  '/vpomodoro/libs/google-fonts/inter-400-normal.woff2',
+  '/vpomodoro/libs/google-fonts/jetbrains-mono-400-normal.woff2',
+  '/vpomodoro/libs/google-fonts/roboto-slab-400-normal.woff2',
+  '/vpomodoro/libs/google-fonts/montserrat-400-normal.woff2'
 ];
 
 // Install event - cache all essential assets
