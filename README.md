@@ -1,5 +1,7 @@
 # 🍅 Vpomodoro
 
+![Screenshot](https://raw.githubusercontent.com/AlexTheGreat600/vpomodoro/main/screenshot.jpg)
+
 > A modern, feature-rich Pomodoro timer with stunning themes, custom activities, and powerful customization options.
 
 ## ✨ Features
