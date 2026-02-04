@@ -63,10 +63,7 @@ Simply open clone repo and `index.html` in your browser. No installation or depe
 
 This app is built with the following open-source libraries:
 
-### **Progress Visualization**
 - [**ProgressBar.js**](https://progressbarjs.readthedocs.io/) – Animated SVG progress bars with multiple shapes (Circle, SemiCircle, Line)
-
-### **Icons**
 - [**Bootstrap Icons**](https://icons.getbootstrap.com/) – Comprehensive icon library for UI controls and actions
 
 
