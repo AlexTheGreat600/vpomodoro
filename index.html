@@ -379,13 +379,26 @@
 
         function toggleTimer() {
             if (isPaused) {
+                // Request permission when user interacts (browser requirement)
+                if ("Notification" in window && Notification.permission === "default") {
+                    Notification.requestPermission();
+                }
+                
                 isPaused = false;
                 document.body.classList.remove('paused');
                 document.getElementById('startBtnText').innerText = "Pause";
                 document.getElementById('startPauseBtn').querySelector('i').className = "bi bi-pause-fill";
                 timer = setInterval(() => { 
-                    if (timeLeft > 0) { timeLeft--; updateDisplay(); } 
-                    else { clearInterval(timer); alert("Time's up!"); resetTimer(); } 
+                    if (timeLeft > 0) { 
+                        timeLeft--; 
+                        updateDisplay(); 
+                    } else { 
+                        clearInterval(timer);
+                        // Trigger Notification
+                        sendNotification("Time's Up!", `${currentActivity.name} session is complete.`);
+                        alert("Time's up!"); 
+                        resetTimer(); 
+                    } 
                 }, 1000);
             } else pauseTimer();
         }
@@ -479,6 +492,19 @@
             activities = activities.filter(a => a.id !== id); 
             saveActivities();
             if(currentActivity.id === id) setActivity(activities[0].id);
+        }
+
+        function sendNotification(title, body) {
+            if (!("Notification" in window)) return;
+    
+            if (Notification.permission === "granted") {
+                new Notification(title, {
+                    body: body,
+                    icon: 'assets/favicon.svg'
+                });
+            } else if (Notification.permission !== "denied") {
+                Notification.requestPermission();
+            }
         }
 
         function renderActivitySelect() { document.getElementById('activitySelect').innerHTML = '<option value="__random__">🎲 Random</option>' + activities.map(a => `<option value="${a.id}">${a.name}</option>`).join(''); }
