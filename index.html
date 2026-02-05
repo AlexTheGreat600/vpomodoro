@@ -129,8 +129,28 @@
         button.primary { background-color: var(--accent-color); color: white; padding: 12px 24px; }
         .icon-btn { padding: 12px; border-radius: 50%; width: 45px; height: 45px; justify-content: center; flex-shrink: 0; }
 
-        .action-bar select { flex: 1; min-width: 0; appearance: none; text-align: center; border: 2px solid var(--surface-color); }
+        .tab-bar, 
+        .action-bar {
+            max-width: 450px; /* Synchronized width for both rows */
+            width: 100%;
+            margin: 0 auto;
+        }
         
+        .action-bar select {
+            flex: 1;
+            min-width: 0;
+            height: 45px; /* Matches the height of the tab buttons */
+            padding: 0 12px;
+            appearance: none;
+            text-align: center;
+            border: 2px solid var(--surface-color);
+        }
+        
+        .action-bar .icon-btn {
+            width: 45px; /* Matches the height for a perfect square */
+            height: 45px;
+        }
+
         .modal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.6); z-index: 1000;
@@ -141,8 +161,21 @@
             width: 90%; max-width: 500px; max-height: 85vh;
             overflow-y: auto; box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
+
         .form-group { margin-bottom: 18px; }
-        .form-group label { display: flex; justify-content: space-between; margin-bottom: 6px; font-weight: 600; font-size: 0.9rem; }
+        .form-group label { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; /* Ensures vertical alignment */
+            margin-bottom: 6px; 
+            font-weight: 600; 
+            font-size: 0.9rem; 
+        }
+
+        #thicknessVal::after {
+            content: "px";
+        }
+
         .form-group input, .form-group select {
             width: 100%; padding: 12px; border-radius: 10px;
             border: 2px solid var(--surface-color); background: var(--surface-color); color: var(--text-color);
@@ -227,7 +260,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label>Stroke Thickness <span id="thicknessVal">6</span>px</label>
+                <label><span>Stroke Thickness</span> <span id="thicknessVal">6</span></label>
                 <input type="range" id="thicknessSelect" min="1" max="20" step="1" oninput="applyThickness(this.value)">
             </div>
             <button class="primary" style="width:100%; justify-content: center; margin-top: 10px;" onclick="saveSettings()">Save & Close</button>
