@@ -248,8 +248,11 @@
             selectRandomActivity();
 
             if(settings.theme === 'default') {
+                const defaultSelOpt = document.querySelector('option[value=default]');
                 const themes = ['ayu-dark', 'nord', 'dracula', 'gruvbox-dark'];
-                applyTheme(themes[Math.floor(Math.random() * themes.length)], false);
+                const randomTheme = themes[Math.floor(Math.random() * themes.length)];
+                defaultSelOpt.text = `Random (${randomTheme})`;
+                applyTheme(randomTheme, false);
             }
         };
 
