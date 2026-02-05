@@ -45,7 +45,7 @@ The app comes pre-loaded with six activities:
 ## 🚀 Quick Start
 
 
-Simply open clone repo and `index.html` in your browser. No installation or dependencies required!
+Simply clone repo and open `index.html` in your browser. No installation or dependencies required!
 
 
 ### Usage:
