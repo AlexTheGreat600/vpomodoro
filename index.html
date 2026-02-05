@@ -23,7 +23,7 @@
             --text-color: #212529;
             --accent-color: #0d6efd;
             --transition-speed: 0.3s;
-            --font-family: 'Inter', sans-serif;
+            --font-family: system-ui, sans-serif;
             --font-size: 16px;
         }
 
@@ -173,10 +173,11 @@
             <div class="form-group">
                 <label>Font Family</label>
                 <select id="fontSelect" onchange="applyFont(this.value)">
-                    <option value="'Inter', sans-serif">Inter</option>
-                    <option value="'JetBrains Mono', monospace">JetBrains Mono</option>
-                    <option value="'Roboto Slab', serif">Roboto Slab</option>
-                    <option value="'Montserrat', sans-serif">Montserrat</option>
+                    <option value="system-ui">System-ui</option>
+                    <option value="sans-serif">Sans-serif</option>
+                    <option value="monospace">Monospace</option>
+                    <option value="serif">Serif</option>
+                    <option value="sans">Sans</option>
                 </select>
             </div>
             <div class="form-group">
@@ -238,7 +239,7 @@
         ];
 
         let activities = JSON.parse(localStorage.getItem('vp_activities')) || defaultActivities;
-        let settings = JSON.parse(localStorage.getItem('vp_settings')) || { theme: 'default', font: "'Inter', sans-serif", shape: 'Circle', thickness: 6 };
+        let settings = JSON.parse(localStorage.getItem('vp_settings')) || { theme: 'default', font: "'system-ui', sans-serif", shape: 'Circle', thickness: 6 };
         let timer = null, timeLeft = 0, totalTime = 0, isPaused = true, currentActivity = activities[0], progressBar = null;
 
         window.onload = () => {
