@@ -286,7 +286,7 @@
             const timeStr = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
             const display = document.getElementById('timer-display');
             if(display) display.innerText = timeStr;
-            document.title = `Vpomodoro - ${currentActivity.name} (${timeStr})`;
+            document.title = `${currentActivity.name} (${timeStr}) - Vpomodoro`;
             
             if (timeLeft === totalTime) document.body.classList.add('at-start');
             else document.body.classList.remove('at-start');
