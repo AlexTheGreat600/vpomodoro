@@ -180,6 +180,46 @@
             width: 100%; padding: 12px; border-radius: 10px;
             border: 2px solid var(--surface-color); background: var(--surface-color); color: var(--text-color);
         }
+    
+        .accordion-wrapper {
+            width: 100%;
+            max-width: 380px; /* Reduced further from 450px */
+            margin: 0 auto;
+        }
+        
+        .shortcut-trigger {
+            width: 100%;
+            background: var(--surface-color);
+            border: 2px solid transparent;
+            border-radius: 10px; /* Slightly tighter corners */
+            padding: 4px 8px; /* Minimal vertical padding */
+            font-size: 0.7rem; /* Even smaller font */
+            font-weight: 600;
+            justify-content: center;
+            opacity: 0.65; /* Slightly more subtle */
+            min-height: 28px; /* Very compact height */
+        }
+        
+        .shortcut-content {
+            display: none;
+            background: var(--surface-color);
+            margin-top: 2px;
+            border-radius: 10px;
+            padding: 8px; /* Compact internal padding */
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            font-size: 0.7rem; /* Matches trigger font size */
+        }
+        
+        .kbd-key { 
+            background: var(--bg-color); 
+            padding: 0px 3px; /* Minimal padding */
+            border-radius: 3px; 
+            border: 1px solid var(--text-color);
+            font-family: monospace;
+            font-size: 0.65rem;
+            margin-left: 6px; 
+        }
 
         footer { padding: 25px; text-align: center; font-size: 0.85rem; opacity: 0.7; }
         input[type=range] { padding: 0; background: transparent; cursor: pointer; }
@@ -199,6 +239,20 @@
             <button class="tab-btn active" onclick="setMode('work')"><i class="bi bi-briefcase-fill"></i> Work Time</button>
             <button class="tab-btn" onclick="setMode('break')"><i class="bi bi-cup-hot-fill"></i> Short Break</button>
             <button class="tab-btn" onclick="setMode('long')"><i class="bi bi-clock-history"></i> Long Break</button>
+        </div>
+
+        <div class="accordion-wrapper">
+            <button class="shortcut-trigger" onclick="toggleAccordion()">
+                <i class="bi bi-keyboard"></i> View Keyboard Shortcuts
+            </button>
+            <div id="shortcutContent" class="shortcut-content">
+                <div class="shortcut-item"><span>Start/Pause</span> <span class="kbd-key">Space</span></div>
+                <div class="shortcut-item"><span>Reset</span> <span class="kbd-key">R</span></div>
+                <div class="shortcut-item"><span>Work Mode</span> <span class="kbd-key">W</span></div>
+                <div class="shortcut-item"><span>Short Break</span> <span class="kbd-key">B</span></div>
+                <div class="shortcut-item"><span>Long Break</span> <span class="kbd-key">L</span></div>
+                <div class="shortcut-item"><span>Settings</span> <span class="kbd-key">S</span></div>
+            </div>
         </div>
 
         <div id="progress-container">
@@ -530,6 +584,27 @@
         }
         function saveSettings() { localStorage.setItem('vp_settings', JSON.stringify(settings)); if(document.getElementById('settingsModal').style.display === 'flex') toggleModal('settingsModal'); }
         function clearAllData() { if (confirm("Are you sure? This will delete all custom activities and reset all settings to default.")) { localStorage.clear(); window.location.reload(); } }
+
+        function toggleAccordion() {
+            const content = document.getElementById('shortcutContent');
+            content.style.display = content.style.display === 'grid' ? 'none' : 'grid';
+        }
+
+        // Keyboard Shortcut Listener
+        document.addEventListener('keydown', (e) => {
+            // Prevent shortcuts if user is typing in an input
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+        
+            switch(e.code) {
+                case 'Space': 
+                    e.preventDefault(); toggleTimer(); break;
+                case 'KeyR': resetTimer(); break;
+                case 'KeyW': setMode('work'); break;
+                case 'KeyB': setMode('break'); break;
+                case 'KeyL': setMode('long'); break;
+                case 'KeyS': toggleModal('settingsModal'); break;
+            }
+        });
     </script>
 </body>
 </html>
