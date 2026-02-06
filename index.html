@@ -278,7 +278,7 @@
                 <i class="bi bi-keyboard"></i> View Keyboard Shortcuts
             </button>
             <div id="shortcutContent" class="shortcut-content">
-                <div class="shortcut-item"><span>Start/Pause</span> <span class="kbd-key">Space</span></div>
+                <div class="shortcut-item"><span>Start/Pause</span> <span class="kbd-key">P</span></div>
                 <div class="shortcut-item"><span>Reset</span> <span class="kbd-key">R</span></div>
                 <div class="shortcut-item"><span>Work Mode</span> <span class="kbd-key">W</span></div>
                 <div class="shortcut-item"><span>Short Break</span> <span class="kbd-key">B</span></div>
@@ -631,8 +631,7 @@
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
         
             switch(e.code) {
-                case 'Space': 
-                    e.preventDefault(); toggleTimer(); break;
+                case 'KeyP': toggleTimer(); break;
                 case 'KeyR': resetTimer(); break;
                 case 'KeyW': setMode('work'); break;
                 case 'KeyB': setMode('break'); break;
