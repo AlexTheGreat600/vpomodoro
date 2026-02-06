@@ -183,8 +183,8 @@
     
         .accordion-wrapper {
             width: 100%;
-            max-width: 380px; /* Reduced further from 450px */
-            margin: 0 auto;
+            max-width: 380px;
+            margin: 10px auto; /* Added small vertical margin for better spacing */
         }
         
         .shortcut-trigger {
@@ -223,6 +223,11 @@
 
         footer { padding: 25px; text-align: center; font-size: 0.85rem; opacity: 0.7; }
         input[type=range] { padding: 0; background: transparent; cursor: pointer; }
+
+        @media (max-width: 1024px) {
+            .accordion-wrapper {
+                display: none !important;
+        }
 
         @media (max-width: 480px) {
             .tab-btn { font-size: 0.8rem; padding: 8px 4px; }
