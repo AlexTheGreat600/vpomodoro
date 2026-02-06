@@ -333,6 +333,7 @@
                 <div class="shortcut-item"><span>Settings</span> <span class="kbd-key">S</span></div>
                 <div class="shortcut-item"><span>Increase 1m</span> <span class="kbd-key">=</span></div>
                 <div class="shortcut-item"><span>Decrease 1m</span> <span class="kbd-key">-</span></div>
+                <div class="shortcut-item"><span>Fullscreen</span> <span class="kbd-key">F</span></div>
             </div>
         </div>
 
@@ -748,6 +749,22 @@
                     if (timeLeft > 60) {
                         timeLeft -= 60; totalTime = Math.max(totalTime - 60, 60);
                         updateDisplay();
+                    }
+                    break;
+
+                case 'KeyF': // Fullscreen Toggle logic
+                    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                        if (document.documentElement.requestFullscreen) {
+                            document.documentElement.requestFullscreen();
+                        } else if (document.documentElement.webkitRequestFullscreen) {
+                            document.documentElement.webkitRequestFullscreen();
+                        }
+                    } else {
+                        if (document.exitFullscreen) {
+                            document.exitFullscreen();
+                        } else if (document.webkitExitFullscreen) {
+                            document.webkitExitFullscreen();
+                        }
                     }
                     break;
                 }
