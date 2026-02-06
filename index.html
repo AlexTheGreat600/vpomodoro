@@ -27,6 +27,8 @@
         }
 
         /* Themes */
+        /* Add this to your <style> block alongside your other themes */
+        [data-theme="monokai"] { --bg-color: #272822; --surface-color: #3e3d32; --text-color: #f8f8f2; --accent-color: #a6e22e; --secondary-accent: #f92672; }
         [data-theme="solarized-light"] { --bg-color: #fdf6e3; --surface-color: #eee8d5; --text-color: #586e75; }
         [data-theme="solarized-dark"] { --bg-color: #002b36; --surface-color: #073642; --text-color: #839496; }
         [data-theme="gruvbox-light"] { --bg-color: #fbf1c7; --surface-color: #f2e5bc; --text-color: #3c3836; }
@@ -327,6 +329,7 @@
                     <option value="gruvbox-dark">Gruvbox Dark</option>
                     <option value="nord">Nord</option>
                     <option value="dracula">Dracula</option>
+                    <option value="monokai">Monokai</option>
                 </select>
             </div>
             <div class="form-group">
@@ -641,7 +644,7 @@
 
                 case 'KeyT': 
                     // Explicitly pick a random theme from all available options
-                    const themes = ['ayu-light', 'ayu-dark', 'greenscreen', 'solarized-light', 'solarized-dark', 'gruvbox-light', 'gruvbox-dark', 'nord', 'dracula'];
+                    const themes = ['ayu-light', 'ayu-dark', 'greenscreen', 'solarized-light', 'solarized-dark', 'gruvbox-light', 'gruvbox-dark', 'nord', 'dracula', 'monokai'];
                     const randomTheme = themes[Math.floor(Math.random() * themes.length)];
                     applyTheme(randomTheme);
 
