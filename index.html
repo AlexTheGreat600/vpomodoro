@@ -110,6 +110,23 @@
             50% { opacity: 0.3; }
             100% { opacity: 1; }
         }
+
+        /* 1. Define the animation keyframes */
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(20px); /* Reduced from 100% for a subtler, cleaner app feel */
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0%);
+                opacity: 1;
+            }
+        }
+
+        /* 2. Apply the animation to the main wrapper */
+        #main-wrapper {
+            animation: 0.8s fadeInUp ease-out; /* Smooth 0.8s fade in on load */
+        }
         
         .paused:not(.at-start) #timer-display { animation: blink 1.5s infinite ease-in-out; }
         .semi-circle-mode #timer-display { margin-top: 40px; }
