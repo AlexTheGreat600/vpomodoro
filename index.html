@@ -13,6 +13,7 @@
     <link rel="apple-touch-icon" href="assets/icon-192.png">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="js/progressbar.min.js"></script>
 
     <style>
@@ -330,10 +331,10 @@
                 <div class="shortcut-item"><span>Long Break</span> <span class="kbd-key">L</span></div>
                 <div class="shortcut-item"><span>Random Act</span> <span class="kbd-key">A</span></div>
                 <div class="shortcut-item"><span>Random Theme</span> <span class="kbd-key">T</span></div> 
+                <div class="shortcut-item"><span>Fullscreen</span> <span class="kbd-key">F</span></div>
                 <div class="shortcut-item"><span>Settings</span> <span class="kbd-key">S</span></div>
                 <div class="shortcut-item"><span>Increase 1m</span> <span class="kbd-key">=</span></div>
                 <div class="shortcut-item"><span>Decrease 1m</span> <span class="kbd-key">-</span></div>
-                <div class="shortcut-item"><span>Fullscreen</span> <span class="kbd-key">F</span></div>
             </div>
         </div>
 
@@ -350,6 +351,12 @@
             </button>
 
             <button id="resetBtn" onclick="resetTimer()"><i class="bi bi-arrow-clockwise"></i> <span class="btn-label">Reset</span></button>
+
+            <button id="fullscreenBtn" onclick="toggleFullscreen()" title="Toggle Fullscreen">
+                <i class="bi bi-arrows-fullscreen"></i> 
+                <span class="btn-label">Screen</span>
+            </button>
+
             <button class="icon-btn" onclick="adjustTime(60)" title="Increase 1 min"><i class="bi bi-plus-lg"></i></button>
         </div>
 
@@ -529,26 +536,19 @@
             progressBar.animate(totalTime === 0 ? 0 : 1 - (timeLeft / totalTime));
         }
 
-        // Timer Logic
         function toggleTimer() {
             if (isPaused) {
-                if ("Notification" in window && Notification.permission === "default") {
-                    Notification.requestPermission();
-                }
-                
+                if ("Notification" in window && Notification.permission === "default") Notification.requestPermission();
                 isPaused = false;
                 document.body.classList.remove('paused');
                 document.getElementById('startBtnText').innerText = "Pause";
                 document.getElementById('startPauseBtn').querySelector('i').className = "bi bi-pause-fill";
                 timer = setInterval(() => { 
-                    if (timeLeft > 0) { 
-                        timeLeft--; 
-                        updateDisplay(); 
-                    } else { 
+                    if (timeLeft > 0) { timeLeft--; updateDisplay(); } 
+                    else { 
                         clearInterval(timer);
                         sendNotification("Time's Up!", `${currentActivity.name} session is complete.`);
-                        alert("Time's up!"); 
-                        resetTimer(); 
+                        alert("Time's up!"); resetTimer(); 
                     } 
                 }, 1000);
             } else pauseTimer();
@@ -567,7 +567,6 @@
             let duration = currentActivity.work;
             if(currentMode === 'break') duration = currentActivity.break;
             if(currentMode === 'long') duration = currentActivity.long;
-            
             timeLeft = duration * 60; 
             totalTime = timeLeft; 
             updateDisplay(); 
@@ -579,7 +578,6 @@
             updateDisplay(); 
         }
         
-        // Activity Management
         function setActivity(id) { 
             currentActivity = activities.find(a => a.id === id) || activities[0]; 
             document.documentElement.style.setProperty('--accent-color', currentActivity.color); 
@@ -650,7 +648,6 @@
             if(currentActivity.id === id) setActivity(activities[0].id);
         }
 
-        // System Interactions
         function sendNotification(title, body) {
             if (!("Notification" in window)) return;
             if (Notification.permission === "granted") {
@@ -671,7 +668,6 @@
             m.style.display = (m.style.display === 'flex') ? 'none' : 'flex'; 
         }
 
-        // Settings Application
         function applyTheme(theme, save = true) { 
             if (theme === 'default') document.body.removeAttribute('data-theme'); 
             else document.body.setAttribute('data-theme', theme); 
@@ -720,6 +716,22 @@
             content.style.display = content.style.display === 'grid' ? 'none' : 'grid';
         }
 
+        function toggleFullscreen() {
+            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.documentElement.webkitRequestFullscreen) {
+                    document.documentElement.webkitRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                }
+            }
+        }
+
         // Keyboard Shortcut Listener
         document.addEventListener('keydown', (e) => {
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
@@ -732,6 +744,7 @@
                 case 'KeyL': setMode('long'); break;
                 case 'KeyS': toggleModal('settingsModal'); break;
                 case 'KeyA': selectRandomActivity(); break;
+                case 'KeyF': toggleFullscreen(); break;
                 case 'KeyT': 
                     const themes = ['ayu-light', 'ayu-dark', 'greenscreen', 'solarized-light', 'solarized-dark', 'gruvbox-light', 'gruvbox-dark', 'nord', 'dracula', 'monokai'];
                     const randomTheme = themes[Math.floor(Math.random() * themes.length)];
@@ -749,22 +762,6 @@
                     if (timeLeft > 60) {
                         timeLeft -= 60; totalTime = Math.max(totalTime - 60, 60);
                         updateDisplay();
-                    }
-                    break;
-
-                case 'KeyF': // Fullscreen Toggle logic
-                    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
-                        if (document.documentElement.requestFullscreen) {
-                            document.documentElement.requestFullscreen();
-                        } else if (document.documentElement.webkitRequestFullscreen) {
-                            document.documentElement.webkitRequestFullscreen();
-                        }
-                    } else {
-                        if (document.exitFullscreen) {
-                            document.exitFullscreen();
-                        } else if (document.webkitExitFullscreen) {
-                            document.webkitExitFullscreen();
-                        }
                     }
                     break;
                 }
