@@ -285,10 +285,10 @@
                 <div class="shortcut-item"><span>Work Mode</span> <span class="kbd-key">W</span></div>
                 <div class="shortcut-item"><span>Short Break</span> <span class="kbd-key">B</span></div>
                 <div class="shortcut-item"><span>Long Break</span> <span class="kbd-key">L</span></div>
-                <div class="shortcut-item"><span>Random Act</span> <span class="kbd-key">Q</span></div>
+                <div class="shortcut-item"><span>Random Act</span> <span class="kbd-key">A</span></div>
                 <div class="shortcut-item"><span>Random Theme</span> <span class="kbd-key">T</span></div> <div class="shortcut-item"><span>Settings</span> <span class="kbd-key">S</span></div>
-                <div class="shortcut-item"><span>Increase 1m</span> <span class="kbd-key">↑</span></div>
-                <div class="shortcut-item"><span>Decrease 1m</span> <span class="kbd-key">↓</span></div>
+                <div class="shortcut-item"><span>Increase 1m</span> <span class="kbd-key">=</span></div>
+                <div class="shortcut-item"><span>Decrease 1m</span> <span class="kbd-key">-</span></div>
             </div>
         </div>
 
@@ -639,7 +639,7 @@
                 case 'KeyB': setMode('break'); break;
                 case 'KeyL': setMode('long'); break;
                 case 'KeyS': toggleModal('settingsModal'); break;
-                case 'KeyQ': selectRandomActivity(); break;
+                case 'KeyA': selectRandomActivity(); break;
 
                 case 'KeyT': 
                     // Explicitly pick a random theme from all available options
@@ -652,14 +652,14 @@
                     if (themeSelect) themeSelect.value = randomTheme;
                     break;
 
-                case 'ArrowUp':
+                case 'Equal':
                     e.preventDefault(); // Prevent page scroll
                     timeLeft += 60;
                     totalTime += 60; // Adjust total to keep progress bar accurate
                     updateDisplay();
                     break;
 
-                case 'ArrowDown':
+                case 'Minus':
                     e.preventDefault(); // Prevent page scroll
                     if (timeLeft > 60) {
                         timeLeft -= 60;
