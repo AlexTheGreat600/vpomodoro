@@ -227,15 +227,25 @@
             gap: 6px;
             font-size: 0.7rem; /* Matches trigger font size */
         }
+
+        .shortcut-item { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; /* Vertical centering */
+            opacity: 0.9; 
+            width: 100%;
+        }
         
         .kbd-key { 
             background: var(--bg-color); 
-            padding: 0px 3px; /* Minimal padding */
+            padding: 0px 3px;
             border-radius: 3px; 
             border: 1px solid var(--text-color);
             font-family: monospace;
             font-size: 0.65rem;
-            margin-left: 6px; 
+            margin-left: auto; /* Pushes the element to the far right */
+            text-align: center;
+            min-width: 20px; /* Ensures consistent size for single characters */
         }
 
         footer { padding: 25px; text-align: center; font-size: 0.85rem; opacity: 0.7; }
