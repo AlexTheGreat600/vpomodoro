@@ -13,15 +13,15 @@
 
 
 - **⚡ Lightweight** – Single HTML file with zero build dependencies
+- **📊 Statistics Charts** - View statistics by clicking stats button
 - **📱 Responsive Design** – Works beautifully on desktop and mobile devices
+- **🚴‍♀️ Random Activities** - Select random activities by clocking random button
 - **💾 Local Storage** – All your settings and activities persist between sessions
 - **⏱️ Flexible Timer Control** – Easily adjust work, break, and long break intervals
+- **🎨 Random Themes** - Random theme is selected by default, change that in settings
 - **🎨 Multiple Themes** – Beautiful themes including Dracula, Nord, Gruvbox, Solarized, and more
 - **📝 Custom Activities** – Create and manage unlimited custom activities with unique timers and colors
 - **🎭 Customizable UI** – Change fonts, progress bar shapes (circle, semi-circle, line), and stroke thickness
-- **🚴‍♀️ Random Activities** - Select random activities by clocking random button
-- **🎨 Random Themes** - Random theme is selected by default, change that in settings
-- **📊 Statistics Charts** - View statistics by clicking stats button
 
 
 ## 🎯 Default Activities
