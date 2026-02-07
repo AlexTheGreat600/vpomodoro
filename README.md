@@ -1,10 +1,10 @@
 # 🍅 Vpomodoro
 
 
-![Screenshot](https://raw.githubusercontent.com/AlexTheGreat600/vpomodoro/main/assets/screenshot.jpg)
 ![Screenshot Charts](https://raw.githubusercontent.com/AlexTheGreat600/vpomodoro/main/assets/screenshot-charts.jpg)
 ![Screenshot Activity](https://raw.githubusercontent.com/AlexTheGreat600/vpomodoro/main/assets/screenshot-activity.jpg)
 ![Screenshot Settings](https://raw.githubusercontent.com/AlexTheGreat600/vpomodoro/main/assets/screenshot-settings.jpg)
+![Screenshot Webapp](https://raw.githubusercontent.com/AlexTheGreat600/vpomodoro/main/assets/screenshot.jpg)
 
 > A modern, feature-rich Pomodoro timer with stunning themes, custom activities, and powerful customization options.
 
