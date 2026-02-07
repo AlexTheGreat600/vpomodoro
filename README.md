@@ -62,6 +62,8 @@ Simply clone repo and open `index.html` in your browser. No installation or depe
 3. Use the +/- buttons to adjust time before starting
 4. Customize themes (random [default]), fonts, progress bar, progress bar thickness in Settings ⚙️
 5. Manage activities with the Activities dialog (appears after clicking activities button) 📋
+6. View usage data by clicking statistics button.
+7. Click screen button to fullscreen the webapp.
 
 
 ## 🙏 Credits & Libraries
