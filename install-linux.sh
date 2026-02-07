@@ -25,11 +25,12 @@ fi
 
 # Create symlink for easy access (optional)
 INSTALL_DIR="${HOME}/.local/opt/vpomodoro"
-if [ ! -d "$INSTALL_DIR" ]; then
-    mkdir -p "$INSTALL_DIR"
-    ln -s "$SCRIPT_DIR" "$INSTALL_DIR/app"
-    echo "✓ Symlink created at $INSTALL_DIR"
+mkdir -p "$(dirname "$INSTALL_DIR")"
+if [ -L "$INSTALL_DIR" ] || [ -d "$INSTALL_DIR" ]; then
+    rm -rf "$INSTALL_DIR"
 fi
+ln -s "$SCRIPT_DIR" "$INSTALL_DIR"
+echo "✓ Symlink created at $INSTALL_DIR"
 
 echo ""
 echo "✅ Installation complete!"

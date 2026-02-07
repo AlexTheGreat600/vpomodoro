@@ -2,8 +2,8 @@
 Type=Application
 Name=Vpomodoro
 Comment=A modern, feature-rich Pomodoro timer with stunning themes, custom activities, and powerful customization options
-Exec=xdg-open %U
-Icon=favicon.svg
-Categories=Productivity;Utility;
+Exec=sh -c 'xdg-open "${HOME}/.local/opt/vpomodoro/index.html"'
+Icon=appointment-soon
+Categories=Productivity;Utility;Accessories
 StartupNotify=true
 Terminal=false
